@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Eclipse Debug folder
+Debug/
+
+# Output executable
+TrafficSimulator.exe
