@@ -138,27 +138,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AsciiConsoleOutput.cpp" />
-    <ClCompile Include="Car.cpp" />
-    <ClCompile Include="Drawable.cpp" />
-    <ClCompile Include="Intersection.cpp" />
-    <ClCompile Include="LaneOfTravel.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Road.cpp" />
-    <ClCompile Include="SimulationTimer.cpp" />
-    <ClCompile Include="Tickable.cpp" />
-    <ClCompile Include="Traveler.cpp" />
+    <ClCompile Include="src\AsciiConsoleOutput.cpp" />
+    <ClCompile Include="src\Car.cpp" />
+    <ClCompile Include="src\Drawable.cpp" />
+    <ClCompile Include="src\Intersection.cpp" />
+    <ClCompile Include="src\LaneOfTravel.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Road.cpp" />
+    <ClCompile Include="src\SimulationTimer.cpp" />
+    <ClCompile Include="src\Tickable.cpp" />
+    <ClCompile Include="src\Traveler.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AsciiConsoleOutput.h" />
-    <ClInclude Include="Car.h" />
-    <ClInclude Include="Drawable.h" />
-    <ClInclude Include="Intersection.h" />
-    <ClInclude Include="LaneOfTravel.h" />
-    <ClInclude Include="Road.h" />
-    <ClInclude Include="SimulationTimer.h" />
-    <ClInclude Include="Tickable.h" />
-    <ClInclude Include="Traveler.h" />
+    <ClInclude Include="src\AsciiConsoleOutput.h" />
+    <ClInclude Include="src\Car.h" />
+    <ClInclude Include="src\Drawable.h" />
+    <ClInclude Include="src\Intersection.h" />
+    <ClInclude Include="src\LaneOfTravel.h" />
+    <ClInclude Include="src\Road.h" />
+    <ClInclude Include="src\SimulationTimer.h" />
+    <ClInclude Include="src\Tickable.h" />
+    <ClInclude Include="src\Traveler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
