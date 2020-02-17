@@ -15,63 +15,63 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SimulationTimer.cpp">
+    <ClCompile Include="src\SimulationTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tickable.cpp">
+    <ClCompile Include="src\Tickable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Intersection.cpp">
+    <ClCompile Include="src\Intersection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Road.cpp">
+    <ClCompile Include="src\Road.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LaneOfTravel.cpp">
+    <ClCompile Include="src\LaneOfTravel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Traveler.cpp">
+    <ClCompile Include="src\Traveler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Car.cpp">
+    <ClCompile Include="src\Car.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AsciiConsoleOutput.cpp">
+    <ClCompile Include="src\AsciiConsoleOutput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Drawable.cpp">
+    <ClCompile Include="src\Drawable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SimulationTimer.h">
+    <ClInclude Include="src\SimulationTimer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tickable.h">
+    <ClInclude Include="src\Tickable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Intersection.h">
+    <ClInclude Include="src\Intersection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Road.h">
+    <ClInclude Include="src\Road.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LaneOfTravel.h">
+    <ClInclude Include="src\LaneOfTravel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Traveler.h">
+    <ClInclude Include="src\Traveler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Car.h">
+    <ClInclude Include="src\Car.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AsciiConsoleOutput.h">
+    <ClInclude Include="src\AsciiConsoleOutput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Drawable.h">
+    <ClInclude Include="src\Drawable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
