@@ -2,5 +2,11 @@
 #include "Car.h"
 
 void Car::receiveTick() {
-	std::cout << "It ticked!";
+	//The car needs to move in the direction
+	travel();
+}
+
+char Car::getAsciiChar()
+{
+	return 'c';
 }

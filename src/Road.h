@@ -5,8 +5,11 @@
 #include "AsciiConsoleOutput.h"
 
 #include<vector>
+#include<stdarg.h>
 
-//class LaneOfTravel; //forward declaration for LaneOfTravel
+using std::initializer_list;
+
+class LaneOfTravel; //forward declaration for LaneOfTravel
 
 class Road :
 	public Tickable, public Drawable
@@ -16,7 +19,7 @@ private:
 	size_t constantAxisPosition{};
 public :
 	Road();
-	Road(bool northSouth, size_t constantAxisPosition);
+	Road(bool northSouth, size_t constantAxisPosition, initializer_list<LaneOfTravel*> lanes);
 
 	std::vector<LaneOfTravel> lanes;
 	void receiveTick();

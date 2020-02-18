@@ -37,6 +37,7 @@ void SimulationTimer::clockTick()
 		std::cout << "Sleeping for: " << sleepMillis.count() << "ms";
 		std::this_thread::sleep_for(sleepMillis);
 	}
+	lastTick = nextTick;
 
 }
 
