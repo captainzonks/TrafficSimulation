@@ -29,12 +29,12 @@ LaneOfTravel::LaneOfTravel(double direction, double speedLimit, Road* road, Trav
 LaneOfTravel::~LaneOfTravel()
 {
 	if (spawner != nullptr) {
-		delete spawner;
+	//	delete spawner;
 		spawner = nullptr;
 	}
 
-	for (Traveler* traveler : travelersInLane)
-		delete traveler;
+//	for (Traveler* traveler : travelersInLane)
+//		delete traveler;
 
 	travelersInLane.clear();
 }

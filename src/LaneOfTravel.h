@@ -1,4 +1,7 @@
 #pragma once
+
+#include <cmath>
+
 #include "Tickable.h"
 #include "Road.h"
 #include "Traveler.h"
@@ -25,7 +28,7 @@ private:
 public:
 	LaneOfTravel();
 	LaneOfTravel(double direction, double speedLimit, Road* road, TravelerSpawner* spawner);
-	~LaneOfTravel();
+	virtual ~LaneOfTravel();
 
 	//Getters
 	double getDirection() { return direction; };

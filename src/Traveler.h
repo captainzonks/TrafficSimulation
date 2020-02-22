@@ -1,4 +1,7 @@
 #pragma once
+
+#include <cmath>
+
 #include "Tickable.h"
 #include "AsciiConsoleOutput.h"
 #include "Drawable.h"
@@ -24,6 +27,8 @@ class Traveler :
 {
 public:
     static constexpr auto PI = 3.14159265; //TODO get this value from a library?;
+
+    virtual ~Traveler() {};
 
     Position* getPosition() { return &myPosition;  };
     Movement* getMovement() { return &myMovement;  };

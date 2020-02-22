@@ -10,9 +10,13 @@ Road::Road(size_t startX, size_t startY, size_t endX, size_t endY, initializer_l
 	this->endY = endY;
 
 	for (LaneOfTravel* lane : lanes) {
-		this->lanes.push_back(*lane);
+		this->lanes.push_back(lane);
 		lane->setRoad(this);
 	}
+}
+
+Road::~Road() {
+
 }
 
 void Road::receiveTick() {
@@ -20,7 +24,7 @@ void Road::receiveTick() {
 
 void Road::draw(AsciiConsoleOutput* output)
 {
-	for (LaneOfTravel lane : lanes) {
-		lane.draw(output);
+	for (LaneOfTravel* lane : lanes) {
+		lane->draw(output);
 	}
 }

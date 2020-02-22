@@ -10,6 +10,7 @@ class Car :
 private:
 
 public:
+	virtual ~Car() {};
     virtual void receiveTick() override; //is this shadowing Tickable's function?
     char getAsciiChar();
 };

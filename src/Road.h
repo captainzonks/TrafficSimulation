@@ -19,10 +19,11 @@ private:
 	size_t startY{};
 	size_t endX{};
 	size_t endY{};
-	std::vector<LaneOfTravel> lanes;
+	std::vector<LaneOfTravel*> lanes;
 
 public :
 	Road(size_t startX, size_t startY, size_t endX, size_t endY, initializer_list<LaneOfTravel*> lanes);
+	virtual ~Road();
 
 	void receiveTick();
 	void draw(AsciiConsoleOutput* output);
