@@ -6,6 +6,7 @@
 #include "Road.h"
 #include "AsciiConsoleOutput.h"
 #include "Car.h"
+#include "CarSpawner.h"
 
 using namespace std;
 
@@ -34,7 +35,11 @@ int oneLaneRoadTest() {
 //Example 0.002
 // The goal here is to get the ASCII output looking okay-ish / working at all
 // Also get get a car and an agressing car to hit each other in the lane
-int oneLaneRoad() {
+
+//COMMENTED OUT, the signature for roads and such changes to make more
+//arbitrary directions possible.
+
+/*int oneLaneRoad() {
 	//things are going to take place at x position = 3 for this example
 	size_t xPosition = 3;
 
@@ -80,6 +85,35 @@ int oneLaneRoad() {
 	}
 
 	return 0;
+}*/
+
+int twoLaneRoad() { //Create a road with one lane in each direction
+	//By now our lanes should handle car creation in the ticks of time
+
+	//Let's try to make a diagonal road....
+	CarSpawner southeastSpawner{};
+	CarSpawner northwestSpawner{};
+	LaneOfTravel southeast{ 1.75, 30, nullptr, &southeastSpawner };
+	LaneOfTravel northwest{ 1.75, 30, nullptr, &northwestSpawner };
+	southeastSpawner.setTargetLane(&southeast);
+	northwestSpawner.setTargetLane(&northwest);
+	Road twoLaneRoad{ 0, 0, 10, 10, { &southeast, &northwest } };
+
+	SimulationTimer timer{ 10, 1 };
+	timer.addTickable(&twoLaneRoad);
+
+	AsciiConsoleOutput output{};
+	output.clearFrame();
+	output.outputFrame();
+
+	while (!timer.isFinished()) {
+		output.clearFrame();
+		timer.clockTick();
+		twoLaneRoad.draw(&output);
+		output.outputFrame();
+	}
+
+	return 5;
 }
 
 int main()
@@ -88,5 +122,8 @@ int main()
 	//return oneLaneRoadTest();
 	
 	//Example 0.002
-	return oneLaneRoad();
+	//return oneLaneRoad();
+
+	//Example 0.003
+	return twoLaneRoad();
 }

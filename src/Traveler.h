@@ -20,9 +20,11 @@ struct Movement
  * A traveler is that which travels in a LaneOfTravel
  */
 class Traveler :
-    public Drawable
+    public Drawable, public Tickable
 {
 public:
+    static constexpr auto PI = 3.14159265; //TODO get this value from a library?;
+
     Position* getPosition() { return &myPosition;  };
     Movement* getMovement() { return &myMovement;  };
     
@@ -33,7 +35,8 @@ public:
     friend bool operator==(const Traveler& lhs, const Traveler& rhs);
 
     void draw(AsciiConsoleOutput* output); //Put the Ascii char at our position
-    virtual char getAsciiChar() = 0; //
+    virtual char getAsciiChar() = 0;
+    int getId() const { return id; };
 private:
     int id{};
     Position myPosition{};

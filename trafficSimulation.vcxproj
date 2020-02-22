@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="src\AsciiConsoleOutput.cpp" />
     <ClCompile Include="src\Car.cpp" />
+    <ClCompile Include="src\CarSpawner.cpp" />
     <ClCompile Include="src\Drawable.cpp" />
     <ClCompile Include="src\Intersection.cpp" />
     <ClCompile Include="src\LaneOfTravel.cpp" />
@@ -148,10 +149,12 @@
     <ClCompile Include="src\SimulationTimer.cpp" />
     <ClCompile Include="src\Tickable.cpp" />
     <ClCompile Include="src\Traveler.cpp" />
+    <ClCompile Include="src\TravelerSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AsciiConsoleOutput.h" />
     <ClInclude Include="src\Car.h" />
+    <ClInclude Include="src\CarSpawner.h" />
     <ClInclude Include="src\Drawable.h" />
     <ClInclude Include="src\Intersection.h" />
     <ClInclude Include="src\LaneOfTravel.h" />
@@ -159,6 +162,7 @@
     <ClInclude Include="src\SimulationTimer.h" />
     <ClInclude Include="src\Tickable.h" />
     <ClInclude Include="src\Traveler.h" />
+    <ClInclude Include="src\TravelerSpawner.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

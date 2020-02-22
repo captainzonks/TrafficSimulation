@@ -1,10 +1,8 @@
 #include "Traveler.h"
 
-#define PI 3.14159265 //TODO get this value from a library?
-
 bool operator==(const Traveler& lhs, const Traveler& rhs)
 {
-	return lhs.id == rhs.id;
+	return lhs.getId() == rhs.getId();
 }
 
 void Traveler::travel()
