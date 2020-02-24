@@ -11,10 +11,10 @@ class TravelerSpawner
 {
 protected:
 	double spawnProbability{};
-	LaneOfTravel* targetLane{ nullptr };
+	LaneSegment* targetLane{ nullptr };
 
 	TravelerSpawner(); //50% spawn probability
-	TravelerSpawner(double spawnProbability, LaneOfTravel* targetLane);
+	TravelerSpawner(double spawnProbability, LaneSegment* targetLane);
 
 public:
 	virtual ~TravelerSpawner() { };

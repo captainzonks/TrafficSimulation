@@ -1,41 +1,34 @@
 #pragma once
 
 #include <cmath>
+#include <vector>
+#include <memory>
 
 #include "Tickable.h"
 #include "Road.h"
 #include "Traveler.h"
-#include "TravelerSpawner.h"
-
-#include <vector>
-
+#include "LaneSegment.h"
 
 using std::vector;
+using std::initializer_list;
+using std::shared_ptr;
 
 class Road; //Forward declare the road.
-class TravelerSpawner;
+class LaneSegment;
 
 class LaneOfTravel :
-	public Drawable, public Tickable
+	public Drawable
 {
 private:
 	Road* road{ nullptr };
-	vector<Traveler*> travelersInLane{};
-	double direction{};
-	double speedLimit{};
-	TravelerSpawner* spawner{ nullptr };
+	vector<shared_ptr<LaneSegment>> laneSegments{};
 
 public:
 	LaneOfTravel();
-	LaneOfTravel(double direction, double speedLimit, Road* road, TravelerSpawner* spawner);
+	LaneOfTravel(initializer_list<shared_ptr<LaneSegment>> laneSegments);
 	virtual ~LaneOfTravel();
 
-	//Getters
-	double getDirection() { return direction; };
-	double getSpeedLimit() { return speedLimit; }
-
 	void setRoad(Road* road) { this->road = road; };
-	virtual void receiveTick() override;
 
 	//For management of cars in the lane
 	void addTraveler(Traveler* traveler);

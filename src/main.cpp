@@ -3,10 +3,11 @@
 #include <thread>
 
 #include "SimulationTimer.h"
-#include "Road.h"
 #include "AsciiConsoleOutput.h"
-#include "Car.h"
-#include "CarSpawner.h"
+#include "TravelSituation.h"
+
+//Specific situations...
+#include "TravelSituationEx004.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ using namespace std;
 
 //Example 0.001
 // This is ideally what will be getting printed... somehow
-int oneLaneRoadTest() {
+/*int oneLaneRoadTest() {
 	for (int k = 0; k < 100; k += 1) {
 		cout << "====================================================================================================\n";
 		for (int j = 0; j < 100; j += 1) {
@@ -30,7 +31,7 @@ int oneLaneRoadTest() {
 		std::this_thread::sleep_for(std::chrono::milliseconds(200));
 	}
 	return 0;
-}
+}*/
 
 //Example 0.002
 // The goal here is to get the ASCII output looking okay-ish / working at all
@@ -87,7 +88,7 @@ int oneLaneRoadTest() {
 	return 0;
 }*/
 
-int twoLaneRoad() { //Create a road with one lane in each direction
+/*int twoLaneRoad() { //Create a road with one lane in each direction
 	//By now our lanes should handle car creation in the ticks of time
 
 	//Let's try to make a diagonal road....
@@ -114,6 +115,25 @@ int twoLaneRoad() { //Create a road with one lane in each direction
 	}
 
 	return 5;
+}*/
+
+int travelSituationEx004() {
+	auto situation = TravelSituationEx004::getInstance();
+	SimulationTimer timer = SimulationTimer{1, 10};
+
+	timer.addTickables(situation->getTickables());
+	AsciiConsoleOutput output{};
+	output.clearFrame();
+	output.outputFrame();
+
+	while (!timer.isFinished()) {
+		output.clearFrame();
+		timer.clockTick();
+		situation->draw(&output);
+		output.outputFrame();
+	}
+
+	return 0;
 }
 
 int main()
@@ -125,5 +145,9 @@ int main()
 	//return oneLaneRoad();
 
 	//Example 0.003
-	return twoLaneRoad();
+	//return twoLaneRoad(); //Abandoned for larger ambition
+
+	return travelSituationEx004();
+
+
 }

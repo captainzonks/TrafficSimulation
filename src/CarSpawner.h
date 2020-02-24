@@ -8,7 +8,8 @@ class CarSpawner : //This way we can give the car some random properties, like s
 {
 public:
 	virtual Traveler* getNewTraveler() override;
+	CarSpawner(double spawnProbability, LaneSegment* targetLane) :
+		TravelerSpawner(spawnProbability, targetLane) { };
 	virtual ~CarSpawner() { };
 
-	void setTargetLane(LaneOfTravel* targetLane) { this->targetLane = targetLane; };
 };

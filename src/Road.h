@@ -4,33 +4,25 @@
 #include "LaneOfTravel.h"
 #include "AsciiConsoleOutput.h"
 
-#include<vector>
-#include<stdarg.h>
+#include <vector>
+#include <memory>
 
+using std::vector;
+using std::shared_ptr;
 using std::initializer_list;
 
 class LaneOfTravel; //forward declaration for LaneOfTravel
 
 class Road :
-	public Tickable, public Drawable
+	public Drawable
 {
 private:
-	size_t startX{};
-	size_t startY{};
-	size_t endX{};
-	size_t endY{};
-	std::vector<LaneOfTravel*> lanes;
+	vector<shared_ptr<LaneOfTravel>> lanes;
 
 public :
-	Road(size_t startX, size_t startY, size_t endX, size_t endY, initializer_list<LaneOfTravel*> lanes);
+	Road(initializer_list<shared_ptr<LaneOfTravel>> lanes);
 	virtual ~Road();
 
-	void receiveTick();
 	void draw(AsciiConsoleOutput* output);
-
-	size_t getStartX() { return startX; };
-	size_t getStartY() { return startY; };
-	size_t getEndX() { return endX; };
-	size_t getEndY() { return endY; };
 };
 

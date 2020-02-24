@@ -7,6 +7,8 @@
 #include <thread>
 
 using std::chrono::milliseconds;
+using std::vector;
+using std::shared_ptr;
 
 class SimulationTimer
 {
@@ -19,19 +21,20 @@ public:
 	void runSimulation();
 	void clockTick();
 
-	void addTickable(Tickable* tickable);
+	void addTickable(shared_ptr<Tickable> tickable);
+	void addTickables(vector<shared_ptr<Tickable>> tickables);
 	
 	bool isFinished();
 
 private:
 	//The list of things that receive ticks
-	std::vector<Tickable*> tickables{};
+	vector<shared_ptr<Tickable>> tickables{};
 
 	int simulationLastTick{}; //The ticks start at 0, and go until currentTick == simulationLastTick
 	int ticksPerSecond{};
 	
 	int currentTick{};
-	std::chrono::milliseconds lastTick{};
+	milliseconds lastTick{};
 
 };
 

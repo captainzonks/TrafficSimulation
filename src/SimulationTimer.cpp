@@ -6,9 +6,9 @@ using std::chrono::milliseconds;
 using std::chrono::system_clock;
 
 SimulationTimer::SimulationTimer() {
-	this->simulationLastTick = 1; //500 simulated ticks
-	this->ticksPerSecond = 1; //five should be somewhat slow....
-	//But that means the simulation for the default constructor should be 100 seconds long
+	this->simulationLastTick = 1;
+	this->ticksPerSecond = 1;
+	//Default constructor will only have one tick
 }
 
 SimulationTimer::SimulationTimer(const int simulationLastTick, const int ticksPerSecond) {
@@ -26,7 +26,7 @@ void SimulationTimer::clockTick()
 {
 	//std::cout << "Clocks a tickin";
 	milliseconds nextTick = lastTick + milliseconds(1000 / ticksPerSecond);
-	for (Tickable *t : tickables)
+	for (shared_ptr<Tickable> t : tickables)
 	{
 		t->receiveTick();
 	}
@@ -41,8 +41,13 @@ void SimulationTimer::clockTick()
 
 }
 
-void SimulationTimer::addTickable(Tickable* tickable) {
+void SimulationTimer::addTickable(shared_ptr<Tickable> tickable) {
 	this->tickables.push_back(tickable);
+}
+
+void SimulationTimer::addTickables(vector<shared_ptr<Tickable>> tickables) {
+	for(shared_ptr<Tickable> tickable : tickables)
+		this->tickables.push_back(tickable);
 }
 
 bool SimulationTimer::isFinished()

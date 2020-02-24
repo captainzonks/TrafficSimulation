@@ -6,7 +6,7 @@ TravelerSpawner::TravelerSpawner()
 	srand((unsigned int)time(NULL));
 }
 
-TravelerSpawner::TravelerSpawner(double spawnProbability, LaneOfTravel* targetLane)
+TravelerSpawner::TravelerSpawner(double spawnProbability, LaneSegment* targetLane)
 {
 	this->spawnProbability = spawnProbability;
 	this->targetLane = targetLane;
