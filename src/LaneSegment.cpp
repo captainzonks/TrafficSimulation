@@ -14,12 +14,12 @@ LaneSegment::~LaneSegment()
 
 }
 
-void LaneSegment::addTraveler(Traveler* traveler)
+void LaneSegment::addTraveler(shared_ptr<Traveler> traveler)
 {
 	travelersInSegment.push_back(traveler);
 }
 
-void LaneSegment::removeTraveler(Traveler* traveler)
+void LaneSegment::removeTraveler(shared_ptr<Traveler> traveler)
 {
 	for (auto it = begin(travelersInSegment); it != end(travelersInSegment); ++it) {
 		if (*it == traveler) {
@@ -37,8 +37,9 @@ void LaneSegment::draw(AsciiConsoleOutput* output)
 	double xPos = startPoint.x;
 	double yPos = startPoint.y;
 
+	//TODO get a character for the direction of the road
 	while (xPos < endPoint.x && yPos < endPoint.y) {
-		output->setChar((size_t)xPos, (size_t)yPos, 'F');
+		output->setChar((size_t)xPos, (size_t)yPos, '-');
 		xPos += incrementX;
 		yPos += incrementY;
 	}

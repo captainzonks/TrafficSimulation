@@ -4,20 +4,25 @@
 
 #include "Traveler.h"
 #include "LaneOfTravel.h"
+#include "TravelSituation.h"
 
 class LaneOfTravel;
+class TravelSituation;
 
-class TravelerSpawner
+class TravelerSpawner :
+		public Tickable
 {
 protected:
 	double spawnProbability{};
-	LaneSegment* targetLane{ nullptr };
+	shared_ptr<LaneSegment> targetLane{ nullptr };
+	shared_ptr<TravelSituation> situation{ nullptr };
 
 	TravelerSpawner(); //50% spawn probability
-	TravelerSpawner(double spawnProbability, LaneSegment* targetLane);
+	TravelerSpawner(double spawnProbability, shared_ptr<LaneSegment> targetLane, shared_ptr<TravelSituation> situation);
 
 public:
 	virtual ~TravelerSpawner() { };
-	Traveler* spawn();
-	virtual Traveler* getNewTraveler() = 0;
+	shared_ptr<Traveler> spawn();
+	virtual shared_ptr<Traveler> getNewTraveler() = 0;
+	virtual void receiveTick() override;
 };
