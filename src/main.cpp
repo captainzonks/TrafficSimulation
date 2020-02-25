@@ -119,9 +119,9 @@ using namespace std;
 
 int travelSituationEx004() {
 	auto situation = TravelSituationEx004::getInstance();
-	SimulationTimer timer = SimulationTimer{1, 10};
+	SimulationTimer timer = SimulationTimer{10, 1};
 
-	timer.addTickables(situation->getTickables());
+	timer.setTickableProvider(situation);
 	AsciiConsoleOutput output{};
 	output.clearFrame();
 	output.outputFrame();

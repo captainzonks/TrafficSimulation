@@ -26,7 +26,7 @@ void SimulationTimer::clockTick()
 {
 	//std::cout << "Clocks a tickin";
 	milliseconds nextTick = lastTick + milliseconds(1000 / ticksPerSecond);
-	for (shared_ptr<Tickable> t : tickables)
+	for (shared_ptr<Tickable> t : tickableProvider->getTickables())
 	{
 		t->receiveTick();
 	}
@@ -40,16 +40,6 @@ void SimulationTimer::clockTick()
 	lastTick = nextTick;
 
 }
-
-void SimulationTimer::addTickable(shared_ptr<Tickable> tickable) {
-	this->tickables.push_back(tickable);
-}
-
-void SimulationTimer::addTickables(vector<shared_ptr<Tickable>> tickables) {
-	for(shared_ptr<Tickable> tickable : tickables)
-		this->tickables.push_back(tickable);
-}
-
 bool SimulationTimer::isFinished()
 {
 	return currentTick >= simulationLastTick;

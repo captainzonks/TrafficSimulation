@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 
 #include "Drawable.h"
 #include "LaneOfTravel.h"
@@ -11,6 +12,8 @@
 class LaneOfTravel;
 
 using std::vector;
+using std::shared_ptr;
+using std::make_shared;
 
 //A LaneSegment is, for now at least, a straight segment of road with a single speed limit and no intersections
 class LaneSegment :
@@ -26,7 +29,7 @@ private :
 
 	LaneOfTravel* laneOfTravel = nullptr;
 	int segmentIndex{};
-	vector<Traveler*> travelersInSegment{};
+	vector<shared_ptr<Traveler>> travelersInSegment{};
 
 public:
 	LaneSegment(XYPoint startPoint, XYPoint endPoint, double speedLimit); //TODO add expected traveler type?
@@ -37,12 +40,15 @@ public:
 	double getLength() { return length; };
 	double getSpeedLimit() { return speedLimit; };
 
+	const XYPoint getStartPoint() { return startPoint; };
+	const XYPoint getEndPoint() { return endPoint; };
+
 	void setLaneOfTravel(LaneOfTravel* laneOfTravel) { this->laneOfTravel = laneOfTravel; };
 	void setSegmentIndex(int segementIndex) { this->segmentIndex = segmentIndex; };
 	int getSegmentIndex() { return segmentIndex; };
 
-	void addTraveler(Traveler* traveler);
-	void removeTraveler(Traveler* traveler);
+	void addTraveler(shared_ptr<Traveler> traveler);
+	void removeTraveler(shared_ptr<Traveler> traveler);
 
 	virtual void draw(AsciiConsoleOutput* output) override;
 };

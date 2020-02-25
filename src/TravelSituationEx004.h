@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Traveler.h"
 #include "TravelSituation.h"
 #include "CarSpawner.h"
 #include "Road.h"
@@ -25,7 +26,9 @@ shared_ptr<TravelSituation> TravelSituationEx004::getInstance()
 {
 	shared_ptr<TravelSituation> situation = std::make_unique<TravelSituationEx004>();
 
-	auto l1s1 = make_shared<LaneSegment>(XYPoint(0,0), XYPoint(10,10), 55);
+	auto l1s1 = make_shared<LaneSegment>(XYPoint(0,0), XYPoint(10,10), 2);
+	auto spawn1 = make_shared<CarSpawner>(0.5, l1s1, situation);
+	situation->addTickable(spawn1);
 	auto l1 = make_shared<LaneOfTravel>(initializer_list<shared_ptr<LaneSegment>>( {l1s1} ));
 	auto r1 = make_shared<Road>(initializer_list<shared_ptr<LaneOfTravel>>({l1}));
 

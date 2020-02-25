@@ -1,10 +1,11 @@
 #pragma once
 
-#include "Tickable.h"
-
 #include <vector>
 #include <chrono>
 #include <thread>
+
+#include "Tickable.h"
+#include "TickableProvider.h"
 
 using std::chrono::milliseconds;
 using std::vector;
@@ -21,14 +22,12 @@ public:
 	void runSimulation();
 	void clockTick();
 
-	void addTickable(shared_ptr<Tickable> tickable);
-	void addTickables(vector<shared_ptr<Tickable>> tickables);
+	void setTickableProvider(shared_ptr<TickableProvider> tickableProvider) { this->tickableProvider = tickableProvider; };
 	
 	bool isFinished();
 
 private:
-	//The list of things that receive ticks
-	vector<shared_ptr<Tickable>> tickables{};
+	shared_ptr<TickableProvider> tickableProvider;
 
 	int simulationLastTick{}; //The ticks start at 0, and go until currentTick == simulationLastTick
 	int ticksPerSecond{};
