@@ -6,6 +6,10 @@
 #include "AsciiConsoleOutput.h"
 #include "TravelSituation.h"
 
+//TODO remove includes...
+#include "Point.h"
+#include "StraightLine.h"
+
 //Specific situations...
 #include "TravelSituationEx004.h"
 
@@ -136,6 +140,23 @@ int travelSituationEx004() {
 	return 0;
 }
 
+int collisionTest()
+{
+	XYPoint line1Start = XYPoint(0, 0, 0);
+	XYPoint line1End   = XYPoint(10, 10, 10);
+	XYPoint line2Start = XYPoint(30, 0, 0);
+	XYPoint line2End   = XYPoint(0, 30, 10);
+	StraightLine line1 {line1Start, line1End};
+	StraightLine line2 {line2Start, line2End};
+
+	if(StraightLine::hasCollision(line1, line2))
+		cout << "It collided!";
+	else
+		cout << "DANG IT";
+
+	return 0;
+}
+
 int main()
 {
 	//Example 0.001
@@ -147,7 +168,9 @@ int main()
 	//Example 0.003
 	//return twoLaneRoad(); //Abandoned for larger ambition
 
-	return travelSituationEx004();
+	//Example 0.004
+	//return travelSituationEx004();
 
-
+	//Example 0.005, try some intersecting lines
+	return collisionTest();
 }
