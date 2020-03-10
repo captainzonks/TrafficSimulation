@@ -5,14 +5,10 @@
 #include "Tickable.h"
 #include "AsciiConsoleOutput.h"
 #include "Drawable.h"
+#include "Point.h"
+#include "StraightLine.h"
 
 //helpful structs
-struct Position
-{
-    double x{};
-    double y{};
-};
-
 struct Movement
 {
     double speed{};
@@ -26,12 +22,12 @@ class Traveler :
     public Drawable, public Tickable
 {
 public:
-    static constexpr auto PI = 3.14159265; //TODO get this value from a library?;
-
     virtual ~Traveler() {};
 
-    Position* getPosition() { return &myPosition;  };
+    XYPoint* getLastPosition() { return &lastPosition; };
+    XYPoint* getPosition() { return &myPosition;  };
     Movement* getMovement() { return &myMovement;  };
+    StraightLine* getLastTravel() { return &lastTravel;  };
     
     //Actually update the position
     virtual void travel();
@@ -44,7 +40,9 @@ public:
     int getId() const { return id; };
 private:
     int id{};
-    Position myPosition{};
+    XYPoint lastPosition{};
+    XYPoint myPosition{};
     Movement myMovement{};
+    StraightLine lastTravel{lastPosition, myPosition};
 };
 

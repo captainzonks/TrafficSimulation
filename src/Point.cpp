@@ -19,5 +19,5 @@ double Point::getDirection(XYPoint p1, XYPoint p2) {
 		else
 			return .5;
 	} else
-		return atan(y/x)/Traveler::PI;
+		return atan(y/x)/PI;
 }

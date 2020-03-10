@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Traveler.h" //TODO get PI from somewhere better
 #include <cmath>
 #include <chrono>
 
@@ -19,6 +18,8 @@ struct XYPoint {
 
 class Point {
 public:
+	static constexpr auto PI = 3.14159265; //TODO get this value from a library?;
+
 	//provide static functions for XY point comparison
 	static double getDistanceBetween(XYPoint p1, XYPoint p2);
 	static double getDirection(XYPoint p1, XYPoint p2); //From p1 to p2, in radians

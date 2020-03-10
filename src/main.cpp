@@ -143,9 +143,9 @@ int travelSituationEx004() {
 int collisionTest()
 {
 	XYPoint line1Start = XYPoint(0, 0, 0);
-	XYPoint line1End   = XYPoint(10, 10, 10);
-	XYPoint line2Start = XYPoint(30, 0, 0);
-	XYPoint line2End   = XYPoint(0, 30, 10);
+	XYPoint line1End   = XYPoint(0, 40, 10);
+	XYPoint line2Start = XYPoint(0, 1, 0);
+	XYPoint line2End   = XYPoint(10, 41, 10);
 	StraightLine line1 {line1Start, line1End};
 	StraightLine line2 {line2Start, line2End};
 
@@ -169,8 +169,8 @@ int main()
 	//return twoLaneRoad(); //Abandoned for larger ambition
 
 	//Example 0.004
-	//return travelSituationEx004();
+	return travelSituationEx004();
 
 	//Example 0.005, try some intersecting lines
-	return collisionTest();
+	//return collisionTest();
 }

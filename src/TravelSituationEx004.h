@@ -31,8 +31,15 @@ shared_ptr<TravelSituation> TravelSituationEx004::getInstance()
 	situation->addTickable(spawn1);
 	auto l1 = make_shared<LaneOfTravel>(initializer_list<shared_ptr<LaneSegment>>( {l1s1} ));
 	auto r1 = make_shared<Road>(initializer_list<shared_ptr<LaneOfTravel>>({l1}));
-
 	situation->addRoad(r1);
+
+	//Make an intersecting road, too
+	auto l2s1 = make_shared<LaneSegment>(XYPoint(0,10), XYPoint(10,0), 2);
+	auto spawn2 = make_shared<CarSpawner>(0.5, l2s1, situation);
+	situation->addTickable(spawn2);
+	auto l2 = make_shared<LaneOfTravel>(initializer_list<shared_ptr<LaneSegment>>( {l2s1} ));
+	auto r2 = make_shared<Road>(initializer_list<shared_ptr<LaneOfTravel>>({l2}));
+	situation->addRoad(r2);
 
 	return situation;
 }

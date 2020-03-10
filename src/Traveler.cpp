@@ -7,9 +7,13 @@ bool operator==(const Traveler& lhs, const Traveler& rhs)
 
 void Traveler::travel()
 {
+	//TODO introduce passing current time, so that it can be recorded in the position
+	lastPosition.x = myPosition.x;
+	lastPosition.y = myPosition.y;
+
 	double movedX, movedY;
-	movedX = sin(myMovement.direction*PI) * myMovement.speed;
-	movedY = cos(myMovement.direction*PI) * myMovement.speed;
+	movedX = cos(myMovement.direction*Point::PI) * myMovement.speed;
+	movedY = sin(myMovement.direction*Point::PI) * myMovement.speed;
 	myPosition.x += movedX;
 	myPosition.y += movedY;
 }
